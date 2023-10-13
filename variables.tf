@@ -10,10 +10,6 @@ variable "instances" {
   type = list(string)
 }
 
-variable "instances_zone" {
-  type = string
-}
-
 variable "instance_prefix" {
   type = list(string)
   default = []

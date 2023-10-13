@@ -23,7 +23,6 @@ module "patch_management" {
     security = "true"
     minimal = "false"
     // Windows patch configs
-    excludes = ["bash"]
     classifications = ["CRITICAL","SECURITY"]
     time_of_day = [0, 30, 0, 0] 
     reboot_config = "NEVER"
@@ -53,6 +52,7 @@ module "patch_management" {
 | reboot_config | Post-patch reboot settings | string | “NEVER” | no |
 | time_zone | Defines the time zone that timeOfDay is relative to | string | “Europe/Istanbul” | no |
 | time_of_day | Time of the day to run a recurring deployment. H/M/S/N | list(number) | [0,30,0,0] | no |
+| month_of_day | Month of the day to update packages | number | 2 | no |
 
 ## Requirements
 

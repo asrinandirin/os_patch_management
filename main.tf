@@ -47,7 +47,7 @@ resource "google_os_config_patch_deployment" "sandbox-deployment" {
         }
 
         monthly {
-        month_day = 2
+        month_day = var.month_day
         }
     }
 

@@ -69,6 +69,11 @@ variable "time_of_day" {
   default = [ 0,30,0,0 ]
 }
 
+variable "month_day" {
+  type = number
+  default = 2
+}
+
 
 
 

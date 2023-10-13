@@ -1,6 +1,13 @@
 locals {
-  zone = var.instances_zone
-  instances = [for name in var.instances : "zones/${local.zone}/instances/${name}"]
+  instances = [
+    for instance in var.instances : {
+      name = split(",", instance)[0]
+      zone = split(",", instance)[1]
+    }
+  ]
+  instance_resources = [
+    for instance in local.instances : "zones/${instance.zone}/instances/${instance.name}"
+  ]
   prefixes = var.instance_prefix
 }
 
@@ -10,7 +17,7 @@ resource "google_os_config_patch_deployment" "sandbox-deployment" {
   patch_deployment_id = var.patch_deployment_id
 
    instance_filter {
-        instances = local.instances
+        instances = local.instance_resources
         instance_name_prefixes = local.prefixes
     }
 
@@ -52,6 +59,3 @@ resource "google_os_config_patch_deployment" "sandbox-deployment" {
     }
 
 }
-
-
-

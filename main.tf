@@ -13,7 +13,6 @@ locals {
 
 resource "google_os_config_patch_deployment" "sandbox-deployment" {
 
-  project = var.project
   patch_deployment_id = var.patch_deployment_id
 
    instance_filter {

@@ -15,7 +15,6 @@ Basic usage of this module is as follows:
 ```bash
 module "patch_management" {
     source = "github.com/asrinandirin/os_patch_management/"
-    project = "<project-id>"
     patch_deployment_id = "my-patch-deployment"
     instances = ["instance-1,<instance-zone1>","instance_2,<instance-zone2>"]
     // Centos patch configs
@@ -38,7 +37,6 @@ module "patch_management" {
 | Name | Description | Type | Default | Required |
 | --- | --- | --- | --- | --- |
 | patch_deployment_id | A name for the patch deployment in the project. | string | n/a | yes |
-| project | Project for deploying patch deployment. | string | n/a | yes |
 | instances | Target instances,instance-zone | list(string) | {} | yes |
 | instances_prefix | Prefix of instances that will be updated | list(string) | {} | no |
 | security | Adds the --security flag to yum update. Not supported on all platforms. | bool | true | yes |

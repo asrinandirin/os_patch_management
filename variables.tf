@@ -2,10 +2,6 @@ variable "patch_deployment_id" {
     type = string
 }
 
-variable "project" {
-  type = string
-}
-
 variable "instances" {
   type = list(string)
 }
